@@ -8,6 +8,12 @@ Hosts quality strategy, test taxonomy, and validation criteria documentation.
 - Map acceptance criteria to automated and manual checks.
 - Maintain release quality gates and evidence standards.
 
+## Prompt 43 Performance Suite
+- `performance/k6/load.js`: load profile for expected traffic behavior.
+- `performance/k6/stress.js`: stress profile for saturation boundary testing.
+- `performance/k6/benchmark.js`: benchmark profile for before/after optimization comparisons.
+- `performance/results/`: run outputs (`--summary-export` JSON artifacts).
+
 ## Ownership
 Quality Engineering
 

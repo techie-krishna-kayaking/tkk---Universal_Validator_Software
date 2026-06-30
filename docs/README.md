@@ -16,3 +16,6 @@ Product and Engineering Documentation Council
 - Changes SHALL align with approved architecture and SRS requirement IDs.
 - Naming SHALL follow repository naming standards and semantic versioning policies.
 - Security, privacy, and tenant isolation requirements SHALL be reflected in all artifacts.
+
+## Prompt 43 Runbook
+- `PERFORMANCE_TESTING.md`: load, stress, benchmark, and optimization guidance.
