@@ -1,0 +1,1671 @@
+PROJECT NAME
+tkk-UniversalValidator
+
+REFERENCE PROJECT
+1IB_universal-validator
+
+ROLE
+
+You are a Distinguished Software Architect and Principal Engineer with 25+ years of experience building enterprise software used by Fortune 500 companies.
+
+You have designed enterprise-scale systems comparable to:
+
+- Azure Data Factory
+- Informatica
+- Talend
+- Great Expectations
+- Monte Carlo
+- Soda
+- QuerySurge
+- Databricks
+- Snowflake
+- AWS Glue
+- dbt
+- Apache Airflow
+- Microsoft Power BI
+- Tableau Server
+
+You are an expert in:
+
+Backend
+- Python
+- FastAPI
+- Django
+- SQLAlchemy
+- Async Programming
+- Celery
+- Redis
+
+Frontend
+- React
+- Next.js
+- Material UI
+- Tailwind
+- TypeScript
+
+Data Engineering
+- Pandas
+- PySpark
+- Polars
+- DuckDB
+- Spark
+- Delta Lake
+- Iceberg
+- Hudi
+
+Cloud
+- AWS
+- Azure
+- GCP
+
+Security
+- OAuth2
+- JWT
+- Okta
+- Azure AD
+- Microsoft Entra ID
+- Google Workspace
+- MFA
+- RBAC
+
+DevOps
+- Docker
+- Kubernetes
+- Terraform
+- GitHub Actions
+
+AI
+- LangChain
+- OpenAI
+- Azure OpenAI
+- Ollama
+- RAG
+- MCP
+- LLM Agents
+
+==================================================
+
+OBJECTIVE
+
+Build the world's most powerful Universal Data Validation Platform.
+
+This is NOT a demo project.
+
+This is NOT a college project.
+
+This is NOT a prototype.
+
+This is an enterprise-grade commercial software product that should be capable of serving thousands of organizations and hundreds of thousands of users.
+
+The software should compete with:
+
+- Great Expectations
+- Monte Carlo
+- Soda
+- Informatica DVO
+- Datagaps
+- QuerySurge
+
+==================================================
+
+REFERENCE PROJECT
+
+Analyze the project:
+
+1IB_universal-validator
+
+Use it ONLY as a reference.
+
+Do NOT copy:
+
+- code
+- folder structure
+- UI
+- architecture
+- naming conventions
+
+Instead:
+
+- identify strengths
+- identify weaknesses
+- identify missing enterprise capabilities
+- redesign everything using modern enterprise architecture
+
+==================================================
+
+YOUR TASK
+
+DO NOT WRITE CODE.
+
+ONLY DESIGN.
+
+Produce a complete Software Architecture Document containing:
+
+1. Product Vision
+2. Functional Requirements
+3. Non-functional Requirements
+4. Enterprise Architecture
+5. High-Level Architecture Diagram
+6. Low-Level Architecture
+7. Microservice vs Modular Monolith recommendation
+8. Folder Structure
+9. Technology Stack
+10. Plugin Architecture
+11. Validation Engine Design
+12. Connector Framework
+13. Authentication Architecture
+14. Authorization Architecture
+15. RBAC Design
+16. Team Management Design
+17. Database Design
+18. API Design
+19. Scheduler Design
+20. Queue Design
+21. Result Storage Design
+22. Dashboard Architecture
+23. AI Chatbot Architecture
+24. Logging
+25. Monitoring
+26. Security
+27. Deployment Strategy
+28. Disaster Recovery
+29. High Availability
+30. Multi-tenancy
+31. Licensing Model
+32. Future Roadmap
+
+Everything should follow enterprise software engineering standards and be maintainable for at least the next 10 years.
+
+Do not generate any implementation code.
+
+========================================================================================================
+========================================================================================================
+
+Using ONLY the approved architecture from Prompt 1.
+
+Do not redesign anything.
+
+Create a complete IEEE-style Software Requirements Specification (SRS).
+
+Include:
+
+- Executive Summary
+- Business Goals
+- Stakeholders
+- User Personas
+- Functional Requirements
+- Non-functional Requirements
+- Performance Requirements
+- Scalability Requirements
+- Security Requirements
+- Compliance
+- Accessibility
+- Internationalization
+- Error Handling
+- Logging Requirements
+- Audit Requirements
+- Backup Strategy
+- Disaster Recovery
+- User Stories
+- Use Cases
+- Acceptance Criteria
+- Data Validation Workflows
+- API Workflows
+- File Validation Workflows
+- Database Validation Workflows
+- Cloud Validation Workflows
+- AI Chatbot Workflows
+- Reporting Workflows
+- Team Management Workflows
+- RBAC Matrix
+- Admin Operations
+- User Operations
+- Licensing Model
+- Future Enhancements
+
+Do not generate implementation code.
+
+The SRS should be detailed enough that a development team can build the product without ambiguity.
+
+========================================================================================================
+========================================================================================================
+
+Use the approved architecture.
+
+Generate the complete repository structure.
+
+The repository should be organized like a professional Microsoft or Databricks engineering project.
+
+Create folders for:
+
+backend/
+frontend/
+desktop/
+mobile/
+shared/
+plugins/
+connectors/
+validators/
+scheduler/
+chatbot/
+ai/
+config/
+database/
+docker/
+kubernetes/
+terraform/
+scripts/
+tests/
+docs/
+architecture/
+examples/
+sample_configs/
+.github/
+
+Inside every folder explain:
+
+- purpose
+- responsibilities
+- ownership
+- coding standards
+
+Generate:
+
+README.md
+LICENSE
+CHANGELOG.md
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md
+
+Generate a professional Git branching strategy.
+
+Generate semantic versioning strategy.
+
+Generate release strategy.
+
+Generate GitHub labels.
+
+Generate GitHub milestones.
+
+Do not generate implementation code.
+
+Only repository organization and documentation.
+
+
+========================================================================================================
+========================================================================================================
+
+Act as the Architecture Review Board.
+
+Evaluate every major technology decision.
+
+For every layer explain WHY the technology was selected and what alternatives were rejected.
+
+Evaluate:
+
+Backend
+Frontend
+Desktop Framework
+Mobile Framework
+ORM
+Database
+Queue
+Scheduler
+Authentication
+Authorization
+Caching
+Search Engine
+Logging
+Monitoring
+AI Framework
+Charts
+PDF Generation
+YAML Processing
+Secrets Management
+Cloud SDKs
+Testing Framework
+CI/CD
+Containerization
+Infrastructure as Code
+
+For every decision provide:
+
+- Selected Technology
+- Why it was selected
+- Pros
+- Cons
+- Scalability
+- Cost
+- Alternatives considered
+- Future migration strategy
+
+Finally produce a Technology Decision Record (TDR) document.
+
+No code.
+
+========================================================================================================
+========================================================================================================
+Yes. From this point onward, we move from **planning → implementation**.
+
+A common mistake is asking Copilot to "build everything." Instead, each prompt should produce one **fully working, production-ready module** with tests, documentation, and integration points.
+
+The next prompts (6–10) establish the project's core infrastructure before implementing business features.
+
+---
+
+# PROMPT 6 — Backend Foundation & Project Bootstrap
+
+ROLE
+
+You are the Lead Backend Architect.
+
+Use ONLY the approved architecture, SRS, repository structure and database design.
+
+Do NOT redesign anything.
+
+OBJECTIVE
+
+Bootstrap the backend project using enterprise standards.
+
+TECH STACK
+
+Python 3.13
+
+FastAPI
+
+SQLAlchemy 2.x
+
+Alembic
+
+Pydantic v2
+
+Poetry
+
+Redis
+
+PostgreSQL
+
+Celery
+
+Structlog
+
+PyYAML
+
+HTTPX
+
+Create the complete backend foundation.
+
+Implement:
+
+- application factory
+- dependency injection
+- configuration management
+- environment profiles
+- logging framework
+- exception handling
+- middleware
+- request tracing
+- health endpoints
+- readiness endpoints
+- liveness endpoints
+- API versioning
+- OpenAPI customization
+- CORS
+- compression
+- security headers
+- rate limiting hooks
+- database session management
+- Redis initialization
+- Celery initialization
+- graceful shutdown
+- startup lifecycle
+
+Implement:
+
+config/
+core/
+api/
+models/
+schemas/
+services/
+repositories/
+middleware/
+exceptions/
+utils/
+dependencies/
+
+Everything must follow SOLID principles.
+
+Generate:
+
+unit tests
+
+integration tests
+
+developer documentation
+
+architecture documentation
+
+No business logic yet.
+
+
+---
+
+# PROMPT 7 — Authentication & Enterprise Security
+
+Build the complete Authentication module.
+
+Enterprise-grade only.
+
+Supported authentication:
+
+Email & Password
+
+OAuth2
+
+Google Login
+
+Microsoft Login
+
+Azure AD
+
+Okta
+
+OpenID Connect
+
+LDAP (optional)
+
+SAML (future ready)
+
+Implement:
+
+JWT
+
+Refresh Tokens
+
+Session Management
+
+Password Reset
+
+Forgot Password
+
+Email Verification
+
+Remember Me
+
+Account Lockout
+
+Password Policies
+
+Multi-Factor Authentication
+
+Google Authenticator
+
+Microsoft Authenticator
+
+Recovery Codes
+
+Device Trust
+
+Trusted Browser
+
+Login Audit
+
+Security Audit
+
+Suspicious Login Detection
+
+Geo Login Tracking
+
+Rate Limiting
+
+CSRF
+
+XSS Protection
+
+SQL Injection Protection
+
+Role-based authorization
+
+Permission middleware
+
+API authorization
+
+Feature authorization
+
+Tenant authorization
+
+Every endpoint must be protected.
+
+Generate:
+
+database models
+
+services
+
+APIs
+
+tests
+
+Swagger documentation
+
+security documentation
+
+No UI.
+
+
+---
+
+# PROMPT 8 — Organization, Team & RBAC Management
+
+Implement the complete Enterprise User Management module.
+
+Hierarchy
+
+Organization
+
+↓
+
+Teams
+
+↓
+
+Projects
+
+↓
+
+Users
+
+↓
+
+Roles
+
+↓
+
+Permissions
+
+Implement:
+
+Organization CRUD
+
+Team CRUD
+
+Project CRUD
+
+Invite Users
+
+Email Invitation
+
+Accept Invitation
+
+Deactivate User
+
+Delete User
+
+Transfer Ownership
+
+Organization Settings
+
+Team Settings
+
+Project Settings
+
+Implement RBAC.
+
+Default roles:
+
+Platform Admin
+
+Organization Admin
+
+Architect
+
+Developer
+
+QA Lead
+
+QA Engineer
+
+Viewer
+
+Guest
+
+Allow custom roles.
+
+Allow feature-level permissions.
+
+Examples
+
+Can Create Connections
+
+Can Delete Connections
+
+Can Run Validation
+
+Can View Reports
+
+Can Download Reports
+
+Can Configure AI
+
+Can Manage Secrets
+
+Can Configure Schedulers
+
+Everything should be dynamic.
+
+Admin UI APIs only.
+
+Generate:
+
+database models
+
+services
+
+REST APIs
+
+unit tests
+
+integration tests
+
+permission middleware
+
+audit logs
+
+documentation
+
+
+---
+
+# PROMPT 9 — Secrets & Configuration Management
+
+Implement enterprise configuration management.
+
+Configuration sources
+
+.env
+
+YAML
+
+Environment Variables
+
+AWS Secrets Manager
+
+Azure Key Vault
+
+Google Secret Manager
+
+HashiCorp Vault (future ready)
+
+Implement:
+
+Connection encryption
+
+Secret rotation hooks
+
+Credential masking
+
+Encrypted storage
+
+Connection testing
+
+Credential validation
+
+Secret caching
+
+Dynamic configuration reload
+
+Implement configuration types:
+
+Database Connections
+
+Cloud Connections
+
+API Connections
+
+File Connections
+
+Storage Connections
+
+SMTP
+
+Slack
+
+Microsoft Teams
+
+LLM Providers
+
+Notification Settings
+
+Every secret must be encrypted.
+
+Generate APIs
+
+Generate services
+
+Generate repositories
+
+Generate tests
+
+Generate documentation
+
+Generate configuration examples.
+
+
+---
+
+# PROMPT 10 — Universal Connector Framework
+
+Implement the Universal Connector Framework.
+
+This is one of the most important modules.
+
+Design it using Plugin Architecture.
+
+Every connector must inherit from a common interface.
+
+Supported connector categories
+
+======================
+
+FILES
+
+CSV
+
+TSV
+
+TXT
+
+Excel
+
+JSON
+
+XML
+
+Parquet
+
+Avro
+
+ORC
+
+Feather
+
+Arrow
+
+Delta
+
+Iceberg
+
+Hudi
+
+Tableau Hyper
+
+Tableau TWB
+
+Tableau TWBX
+
+Power BI exports
+
+======================
+
+DATABASES
+
+Oracle
+
+SQL Server
+
+PostgreSQL
+
+MySQL
+
+MariaDB
+
+SQLite
+
+Snowflake
+
+Redshift
+
+Databricks SQL
+
+BigQuery
+
+Hive
+
+Impala
+
+ClickHouse
+
+DuckDB
+
+DB2
+
+Teradata
+
+Vertica
+
+======================
+
+CLOUD STORAGE
+
+Amazon S3
+
+Azure Blob
+
+Azure Data Lake
+
+Google Cloud Storage
+
+Databricks Volumes
+
+SharePoint
+
+OneDrive
+
+Google Drive
+
+FTP
+
+SFTP
+
+NAS
+
+======================
+
+BIG DATA
+
+Spark
+
+Hive
+
+Delta Lake
+
+Iceberg
+
+Hudi
+
+Kafka
+
+======================
+
+APIs
+
+REST
+
+SOAP
+
+GraphQL
+
+OpenAPI
+
+JSON API
+
+======================
+
+Every connector should support:
+
+Connection Test
+
+Authentication
+
+Metadata Discovery
+
+Schema Discovery
+
+Primary Key Discovery
+
+Sample Data
+
+Pagination
+
+Streaming
+
+Incremental Read
+
+Pushdown Filters
+
+Parallel Read
+
+Connection Pooling
+
+Retry Logic
+
+Timeout
+
+Error Handling
+
+Metrics
+
+Logging
+
+Generate:
+
+Plugin SDK
+
+Connector Base Classes
+
+Connector Registry
+
+Connector Loader
+
+Connector Factory
+
+Unit Tests
+
+Integration Tests
+
+Documentation
+
+Example Connector Template
+
+No validation logic yet.
+
+
+---
+
+## Milestone after Prompt 10
+
+By this point, you should have a production-grade foundation consisting of:
+
+* Backend infrastructure
+* Authentication & enterprise security
+* Multi-tenant organization and RBAC
+* Secure secrets/configuration management
+* Universal connector framework
+
+The next milestone (Prompts 11–20) should focus on the heart of the product:
+
+* Validation Engine (all 18+ validation types)
+* Pandas/PySpark/Polars/DuckDB execution engine
+* Intelligent engine selection based on data volume
+* YAML-driven validation workflows
+* Result storage and reporting
+* Great Expectations integration
+* Isolation Forest anomaly detection
+* Job scheduling and orchestration
+
+At that stage, the platform starts performing real data validation rather than just providing infrastructure.
+
+
+========================================================================================================
+========================================================================================================
+This is where we take the project from **"working software" → "enterprise product."**
+
+For a product that you eventually want to sell, I'd finish it with **Prompts 11–50**. Each prompt should end with the instruction:
+
+> **"Do not proceed to the next milestone until all code is production-ready, tested, documented, linted, and committed."**
+
+---
+
+# PHASE 3 — Core Validation Engine (Prompts 11–20)
+
+---
+
+## Prompt 11 — Universal Validation Engine
+
+Build the core validation framework.
+
+Implement a plugin-based validation engine where every validation inherits from a common validator interface.
+
+Support:
+
+* Record Count
+* Column Count
+* Metadata Validation
+* Duplicate Detection
+* Null Analysis
+* Empty String Detection
+* Data Comparison
+* Column Order
+* Precision
+* Scale
+* Length
+* Distinct Count
+* Date Range
+* Case Sensitivity
+* Leading Zeros
+* Special Characters
+* Row Checksum
+* Symmetric Difference
+* Great Expectations
+* Isolation Forest
+* Custom SQL Validators
+* Custom Python Validators
+* Custom Spark Validators
+
+Support parallel execution, configurable validation pipelines, validation templates, dependency ordering, retries, and plugin discovery.
+
+---
+
+## Prompt 12 — Universal Data Execution Engine
+
+Implement execution engines for:
+
+* Pandas
+* PySpark
+* Polars
+* DuckDB
+
+Automatically choose the engine based on:
+
+* file size
+* row count
+* memory
+* cluster availability
+* user preference
+
+Support automatic fallback.
+
+---
+
+## Prompt 13 — YAML Workflow Engine
+
+Implement YAML-driven execution.
+
+Support:
+
+* Source
+* Target
+* Primary Keys
+* Join Keys
+* Filters
+* Transformations
+* SQL Queries
+* Spark SQL
+* Python Transformations
+* Validation Selection
+* Sampling
+* Scheduling
+* Output Location
+
+Validate YAML schema.
+
+Auto-complete YAML templates.
+
+Version YAML.
+
+---
+
+## Prompt 14 — SQL Transformation Framework
+
+Implement transformation support.
+
+Allow:
+
+* Source SQL
+* Target SQL
+* Views
+* Temporary Tables
+* CTEs
+* Stored Procedures
+* Parameterized Queries
+
+Support validation after transformation.
+
+---
+
+## Prompt 15 — Data Profiling Engine
+
+Automatically profile every dataset.
+
+Generate:
+
+* schema
+* null %
+* uniqueness
+* min/max
+* averages
+* histograms
+* top values
+* cardinality
+* distributions
+
+Generate HTML profile reports.
+
+---
+
+## Prompt 16 — Great Expectations Integration
+Integrate Great Expectations.
+Automatically generate expectations.
+Allow editing.
+Run expectation suites.
+Store results.
+Version expectations.
+
+---
+
+## Prompt 17 — ML Anomaly Detection
+Implement:
+Isolation Forest
+Future-ready interface for:
+* One-Class SVM
+* Autoencoder
+* Prophet
+* Seasonal Detection
+Show anomaly visualizations.
+
+---
+
+## Prompt 18 — Result Storage Engine
+Store results in:
+Database
+CSV
+JSON
+Parquet
+HTML
+Excel
+Allow downloading.
+Retention policies.
+Archiving.
+
+---
+
+## Prompt 19 — Report Generator
+Generate:
+HTML
+PDF
+Excel
+CSV
+JSON
+Email Report
+Executive Summary
+Detailed Report
+Comparison Report
+Trend Report
+
+---
+
+## Prompt 20 — Scheduler & Job Orchestration
+Implement:
+Cron
+One-time
+Recurring
+Retry
+Queue
+Priority
+Concurrency
+Notifications
+History
+Pause
+Resume
+Cancel
+
+---
+
+# PHASE 4 — Enterprise Dashboard (Prompts 21–30)
+---
+## Prompt 21
+Enterprise React Dashboard
+Modern Material UI
+Dark Theme
+Light Theme
+Responsive
+Role-based navigation
+---
+
+## Prompt 22
+Dashboard Widgets
+Charts
+KPIs
+Validation Trends
+Pass %
+Failure %
+Historical Reports
+
+---
+
+## Prompt 23
+Project Management
+Projects
+Folders
+Validation Suites
+Templates
+Favorites
+Search
+---
+
+## Prompt 24
+Connection Management UI
+All connectors
+Connection Test
+Credential Validation
+Metadata Preview
+---
+
+## Prompt 25
+Validation Builder
+Drag-and-drop
+Choose:
+Source
+Target
+Primary Keys
+Validation Rules
+Preview
+Run
+---
+
+## Prompt 26
+Execution Monitoring
+Live Logs
+Progress Bar
+Running Jobs
+Completed Jobs
+Cancelled Jobs
+Queue Status
+---
+
+## Prompt 27
+Report Dashboard
+Interactive Charts
+Filtering
+Export
+Share
+Email
+PDF
+---
+
+## Prompt 28
+Administration Console
+Organizations
+Users
+Teams
+Permissions
+License
+Audit
+---
+
+## Prompt 29
+Settings
+Secrets
+Themes
+Notifications
+Storage
+SMTP
+AI Providers
+---
+
+## Prompt 30
+Accessibility
+Localization
+Keyboard Support
+Screen Reader
+Multi-language Ready
+---
+
+
+###############################################################################################
+###############################################################################################
+###############################################################################################
+
+# PHASE 5 — AI Assistant (Prompts 31–36)
+---
+## Prompt 31
+Enterprise AI Chatbot
+Natural language validation.
+---
+
+## Prompt 32
+Source-to-Target Mapping Reader
+Upload:
+Excel
+Word
+PDF
+Automatically generate validation cases.
+---
+
+## Prompt 33
+SQL Generator
+Generate SQL from English.
+Optimize SQL.
+Explain SQL.
+---
+
+## Prompt 34
+Test Case Generator
+Generate:
+Manual
+Automation
+Negative
+Boundary
+Edge Cases
+---
+
+## Prompt 35
+AI Report Explainer
+Summarize failures.
+Explain anomalies.
+Recommend fixes.
+---
+
+
+###############################################################################################
+###############################################################################################
+###############################################################################################
+
+
+## Prompt 36
+Conversation History
+Search
+Bookmarks
+Export
+Share
+---
+
+# PHASE 6 — DevOps & Deployment (Prompts 37–43)
+---
+## Prompt 37
+Docker
+Docker Compose
+Production Images
+---
+
+## Prompt 38
+Kubernetes
+Helm
+Ingress
+Scaling
+---
+
+## Prompt 39
+Terraform
+AWS
+Azure
+GCP
+---
+
+## Prompt 40
+GitHub Actions
+CI/CD
+Testing
+Deployment
+---
+
+## Prompt 41
+Monitoring
+Prometheus
+Grafana
+ELK
+OpenTelemetry
+---
+
+## Prompt 42
+Backup
+Restore
+Migration
+DR
+---
+
+## Prompt 43
+Performance Testing
+Load
+Stress
+Benchmark
+Optimization
+---
+
+# PHASE 7 — Enterprise Readiness (Prompts 44–50)
+---
+## Prompt 44
+Security Review
+OWASP
+Pen Testing Checklist
+Threat Model
+---
+
+## Prompt 45
+Comprehensive Testing
+Unit
+Integration
+API
+UI
+Performance
+Security
+End-to-End
+---
+
+## Prompt 46
+Documentation
+Developer Guide
+User Guide
+Admin Guide
+Architecture Guide
+API Docs
+Plugin SDK
+---
+
+## Prompt 47
+Packaging
+Generate installers for:
+* Windows (.exe)
+* macOS (.dmg)
+* Linux packages
+Create desktop builds, web deployment artifacts, and prepare mobile release pipelines for Android and iOS.
+---
+
+## Prompt 48
+Release Management
+Semantic Versioning
+Release Notes
+GitHub Releases
+---
+
+## Prompt 49
+Enterprise Demo Environment
+Sample Data
+Demo Projects
+Training Material
+Walkthrough
+---
+
+## Prompt 50 — Final Enterprise Review
+Act as an independent Architecture Review Board.
+Review every module.
+Review every API.
+Review every database table.
+Review every UI screen.
+Review every security decision.
+Review scalability.
+Review maintainability.
+Review performance.
+Review coding standards.
+Review documentation.
+Identify:
+* bugs
+* bottlenecks
+* anti-patterns
+* duplicated code
+* security issues
+* memory leaks
+* optimization opportunities
+* UI inconsistencies
+* missing enterprise features
+
+Generate a production readiness report with a score for every subsystem.
+Only approve the product if it meets enterprise quality standards.
+---
+
+# One final recommendation
+Because your ambition is to build a product that can compete with enterprise data quality platforms, I'd extend this beyond 50 prompts into a **70–80 prompt engineering roadmap**. The additional milestones would cover:
+* **Enterprise Plugin SDK** for third-party validators and connectors
+* **REST API SDKs** (Python, Java, .NET)
+* **CLI** for CI/CD integration
+* **Visual Workflow Designer** (drag-and-drop pipelines)
+* **Data Lineage & Impact Analysis**
+* **Data Catalog Integration**
+* **Data Contracts**
+* **Change Data Capture (CDC) validation**
+* **Data Drift Detection**
+* **Observability Dashboard**
+* **Slack/Microsoft Teams notifications**
+* **Webhook integrations**
+* **Marketplace for community plugins**
+* **Usage analytics and licensing**
+* **Subscription and billing**
+* **Feature flags and A/B rollout**
+* **Telemetry with opt-in controls**
+* **Offline desktop mode with sync**
+* **Comprehensive migration tools**
+* **SDK documentation and example projects**
+
+That roadmap would give you a product that is much closer in scope to commercial platforms like Great Expectations, Soda, Monte Carlo, or QuerySurge, while remaining extensible enough to evolve over many years.
+
+========================================================================================================
+========================================================================================================
+
+For development and testing, you can create a few predefined users with different roles.
+## Default Admin
+Username: admin
+Email: admin@tkkvalidator.local
+Password: Admin@123
+Role: Platform Admin
+---
+## Organization Admin
+Username: orgadmin
+Email: orgadmin@tkkvalidator.local
+Password: Admin@123
+Role: Organization Admin
+---
+
+## Architect
+Username: architect
+Email: architect@tkkvalidator.local
+Password: Architect@123
+Role: Architect
+---
+
+## QA Lead
+Username: qalead
+Email: qalead@tkkvalidator.local
+Password: QALead@123
+Role: QA Lead
+---
+
+## QA Engineer
+Username: tester
+Email: tester@tkkvalidator.local
+Password: Tester@123
+Role: QA Engineer
+---
+
+## Data Engineer
+Username: dataengineer
+Email: dataengineer@tkkvalidator.local
+Password: Data@123
+Role: Data Engineer
+---
+
+## Viewer
+Username: viewer
+Email: viewer@tkkvalidator.local
+Password: Viewer@123
+Role: Viewer
+---
+
+## Guest
+Username: guest
+Email: guest@tkkvalidator.local
+Password: Guest@123
+Role: Guest
+---
+
+# Dummy Organization
+Organization Name:
+TKK Technologies Pvt Ltd
+
+Organization ID:
+TKK-ORG-001
+---
+
+# Dummy Team
+Team Name:
+Data Engineering Team
+
+Team ID:
+TEAM-DE-001
+---
+# Sample Project
+
+Project Name:
+American Express Data Migration
+
+Project Code:
+AMEX-DM-001
+
+---
+
+# Another Sample Project
+Project Name:
+Snowflake Migration Validation
+
+Project Code:
+SNOW-VAL-001
+
+
+---
+
+# Development Mode Login Banner
+
+===============================================
+     TKK Universal Validator - DEV MODE
+===============================================
+
+Environment : Development
+Version     : v1.0.0-dev
+Organization: TKK Technologies Pvt Ltd
+
+Use one of the following accounts:
+
+Platform Admin
+admin / Admin@123
+
+Architect
+architect / Architect@123
+
+QA Lead
+qalead / QALead@123
+
+QA Engineer
+tester / Tester@123
+
+Viewer
+viewer / Viewer@123
+===============================================
+
+
+## Recommended RBAC Access Matrix
+
+| Feature                | Admin | Org Admin | Architect | QA Lead | QA Engineer |   Viewer  |
+| ---------------------- | :---: | :-------: | :-------: | :-----: | :---------: | :-------: |
+| Manage Organizations   |   ✅   |     ❌     |     ❌     |    ❌    |      ❌      |     ❌     |
+| Manage Users           |   ✅   |     ✅     |     ❌     |    ❌    |      ❌      |     ❌     |
+| Create Connections     |   ✅   |     ✅     |     ✅     |    ✅    |      ❌      |     ❌     |
+| Edit Connections       |   ✅   |     ✅     |     ✅     |    ✅    |      ❌      |     ❌     |
+| Test Connections       |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ❌     |
+| Upload YAML            |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ❌     |
+| Create Validation Jobs |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ❌     |
+| Run Validation         |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ❌     |
+| View Reports           |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ✅     |
+| Download Reports       |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ✅     |
+| Delete Reports         |   ✅   |     ✅     |     ✅     |    ❌    |      ❌      |     ❌     |
+| AI Chatbot             |   ✅   |     ✅     |     ✅     |    ✅    |      ✅      |     ❌     |
+| Configure LLM          |   ✅   |     ✅     |     ✅     |    ❌    |      ❌      |     ❌     |
+| Manage Secrets         |   ✅   |     ✅     |     ✅     |    ❌    |      ❌      |     ❌     |
+| System Settings        |   ✅   |     ❌     |     ❌     |    ❌    |      ❌      |     ❌     |
+| Audit Logs             |   ✅   |     ✅     |     ✅     |    ❌    |      ❌      | Read Only |
+
+### Development Tip
+
+For local development, also include a **"Demo Mode"** option on the login page. When enabled (only in non-production environments), it can autofill credentials such as:
+
+* **Platform Admin:** `admin / Admin@123`
+* **QA Engineer:** `tester / Tester@123`
+* **Viewer:** `viewer / Viewer@123`
+
+This speeds up UI testing while ensuring the feature is disabled in staging and production builds.
+
+
+========================================================================================================
+========================================================================================================
+GIT REPO - 
+https://github.com/techie-krishna-kayaking/tkk---Universal_Validator_Software.git

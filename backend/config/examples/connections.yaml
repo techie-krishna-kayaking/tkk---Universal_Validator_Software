@@ -1,0 +1,33 @@
+connections:
+  - tenant_id: tenant-admin
+    name: postgres-main
+    connection_type: database
+    source: yaml
+    credentials:
+      host: localhost
+      port: 5432
+      database: app_db
+      username: app_user
+      password: ${CFG_DB_PASSWORD}
+    metadata:
+      environment: dev
+
+  - tenant_id: tenant-admin
+    name: slack-alerts
+    connection_type: slack
+    source: yaml
+    credentials:
+      webhook_url: ${CFG_SLACK_WEBHOOK}
+    metadata:
+      channel: data-quality-alerts
+
+  - tenant_id: tenant-admin
+    name: llm-openai
+    connection_type: llm_provider
+    source: yaml
+    credentials:
+      provider: openai
+      model: gpt-4.1
+      api_key: ${CFG_LLM_API_KEY}
+    metadata:
+      purpose: ai-assistant

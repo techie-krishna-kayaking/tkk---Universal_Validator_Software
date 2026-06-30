@@ -1,0 +1,62 @@
+{
+  "workflow_id": "wf-sql-transform",
+  "result_id": "wf-sql-transform-20260630141221719973",
+  "generated_at": "2026-06-30T14:12:21.720696+00:00",
+  "executive_summary": {
+    "overall_success": true,
+    "total_validations": 1,
+    "passed_validations": 1,
+    "failed_validations": 0,
+    "success_rate": 100.0
+  },
+  "detailed_report": {
+    "execution": {
+      "source_engine": "duckdb",
+      "target_engine": "duckdb",
+      "source_success": true,
+      "target_success": true
+    },
+    "profiling": {
+      "source": {
+        "row_count": 1,
+        "schema": {}
+      },
+      "target": {
+        "row_count": 1,
+        "schema": {}
+      },
+      "html_report_path": "./results/wf-sql-transform_profile_report.html"
+    },
+    "validation_results": {
+      "validation.custom.status": {
+        "success": true,
+        "score": 1.0,
+        "message": "status_check",
+        "details": {
+          "source_row_count": 1
+        },
+        "warnings": [],
+        "errors": []
+      }
+    },
+    "anomaly_visualizations": {}
+  },
+  "comparison_report": {
+    "baseline_result_id": null,
+    "current_result_id": "wf-sql-transform-20260630141221719973",
+    "baseline_success": null,
+    "current_success": true,
+    "delta_passed_validations": 1
+  },
+  "trend_report": {
+    "points": [
+      {
+        "result_id": "wf-sql-transform-20260630141221719973",
+        "timestamp": "2026-06-30T14:12:21.719973+00:00",
+        "overall_success": true,
+        "success_rate": 100.0
+      }
+    ],
+    "window_size": 1
+  }
+}

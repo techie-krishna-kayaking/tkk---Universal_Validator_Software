@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "tkk-universal-validator-backend"
+version = "0.2.0"
+description = "Backend foundation and enterprise authentication module for tkk-UniversalValidator"
+authors = ["tkk-UniversalValidator Engineering"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = "^0.115.0"
+uvicorn = { extras = ["standard"], version = "^0.32.0" }
+sqlalchemy = "^2.0.36"
+alembic = "^1.13.3"
+pydantic = "^2.10.0"
+pydantic-settings = "^2.6.0"
+redis = "^5.2.0"
+celery = "^5.4.0"
+structlog = "^24.4.0"
+pyyaml = "^6.0.2"
+httpx = "^0.27.2"
+python-multipart = "^0.0.17"
+asyncpg = "^0.30.0"
+orjson = "^3.10.12"
+pyjwt = "^2.10.1"
+passlib = { extras = ["bcrypt"], version = "^1.7.4" }
+pyotp = "^2.9.0"
+email-validator = "^2.2.0"
+cryptography = "^43.0.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+pytest-cov = "^6.0.0"
+ruff = "^0.7.3"
+mypy = "^1.13.0"
+
+[tool.poetry.scripts]
+backend-api = "app.main:run"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"

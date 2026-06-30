@@ -1,0 +1,117 @@
+workflow_id: workflow-sample
+version: 1.0.0
+
+source:
+  connector_key: file.csv
+  object_name: source_dataset
+  inline_rows: []
+  schema: {}
+  column_order: []
+
+target:
+  connector_key: file.csv
+  object_name: target_dataset
+  inline_rows: []
+  schema: {}
+  column_order: []
+
+primary_keys:
+  - id
+
+join_keys:
+  - id
+
+filters: []
+transformations: []
+
+sql_queries:
+  source_query: null
+  target_query: null
+  compare_query: null
+
+sql_transformations:
+  source_sql: null
+  target_sql: null
+  views: []
+  temporary_tables: []
+  ctes: []
+  stored_procedures: []
+  parameters: {}
+  parameterized_queries: {}
+
+spark_sql: null
+python_transformations: []
+
+great_expectations:
+  enabled: false
+  suite_id: default_suite
+  auto_generate: true
+  requested_version: null
+  editable_expectations: []
+
+anomaly_detection:
+  enabled: false
+  model: isolation_forest
+  feature_columns: []
+  options: {}
+
+validation_selection:
+  - validation.record_count
+  - validation.data_comparison
+
+sampling:
+  enabled: false
+  method: head
+  size: 100
+
+scheduling:
+  mode: immediate
+  cron: null
+  run_at: null
+  interval_seconds: null
+  max_retries: 0
+  priority: 100
+  queue: default
+  concurrency_key: null
+  notification_channel: system
+
+output_location:
+  provider: local
+  path: ./results
+  format: json
+
+result_storage:
+  formats:
+    - database
+    - csv
+    - json
+    - parquet
+    - html
+    - excel
+  allow_download: true
+  retention_days: 30
+  archive_enabled: true
+  archive_path: ./results/archive
+
+reporting:
+  enabled: true
+  formats:
+    - html
+    - pdf
+    - excel
+    - csv
+    - json
+  report_types:
+    - executive_summary
+    - detailed_report
+    - comparison_report
+    - trend_report
+  email_recipients: []
+
+execution_profile:
+  file_size_bytes: null
+  row_count: null
+  available_memory_mb: null
+  cluster_available: false
+  user_preference: null
+  allow_fallback: true

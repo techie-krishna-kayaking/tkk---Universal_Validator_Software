@@ -1,0 +1,73 @@
+from app.connectors.implementations import StaticConnector
+from app.connectors.registry import ConnectorRegistry
+from app.connectors.sdk import ALL_CAPABILITIES, ConnectorCategory, ConnectorSpec
+
+
+SUPPORTED_CONNECTOR_SPECS: tuple[ConnectorSpec, ...] = (
+    ConnectorSpec("file.csv", "CSV", ConnectorCategory.FILES, "csv", ALL_CAPABILITIES),
+    ConnectorSpec("file.tsv", "TSV", ConnectorCategory.FILES, "tsv", ALL_CAPABILITIES),
+    ConnectorSpec("file.txt", "TXT", ConnectorCategory.FILES, "txt", ALL_CAPABILITIES),
+    ConnectorSpec("file.excel", "Excel", ConnectorCategory.FILES, "excel", ALL_CAPABILITIES),
+    ConnectorSpec("file.json", "JSON", ConnectorCategory.FILES, "json", ALL_CAPABILITIES),
+    ConnectorSpec("file.xml", "XML", ConnectorCategory.FILES, "xml", ALL_CAPABILITIES),
+    ConnectorSpec("file.parquet", "Parquet", ConnectorCategory.FILES, "parquet", ALL_CAPABILITIES),
+    ConnectorSpec("file.avro", "Avro", ConnectorCategory.FILES, "avro", ALL_CAPABILITIES),
+    ConnectorSpec("file.orc", "ORC", ConnectorCategory.FILES, "orc", ALL_CAPABILITIES),
+    ConnectorSpec("file.feather", "Feather", ConnectorCategory.FILES, "feather", ALL_CAPABILITIES),
+    ConnectorSpec("file.arrow", "Arrow", ConnectorCategory.FILES, "arrow", ALL_CAPABILITIES),
+    ConnectorSpec("file.delta", "Delta", ConnectorCategory.FILES, "delta", ALL_CAPABILITIES),
+    ConnectorSpec("file.iceberg", "Iceberg", ConnectorCategory.FILES, "iceberg", ALL_CAPABILITIES),
+    ConnectorSpec("file.hudi", "Hudi", ConnectorCategory.FILES, "hudi", ALL_CAPABILITIES),
+    ConnectorSpec("file.tableau_hyper", "Tableau Hyper", ConnectorCategory.FILES, "tableau_hyper", ALL_CAPABILITIES),
+    ConnectorSpec("file.tableau_twb", "Tableau TWB", ConnectorCategory.FILES, "tableau_twb", ALL_CAPABILITIES),
+    ConnectorSpec("file.tableau_twbx", "Tableau TWBX", ConnectorCategory.FILES, "tableau_twbx", ALL_CAPABILITIES),
+    ConnectorSpec("file.power_bi_exports", "Power BI Exports", ConnectorCategory.FILES, "power_bi_exports", ALL_CAPABILITIES),
+    ConnectorSpec("db.oracle", "Oracle", ConnectorCategory.DATABASES, "oracle", ALL_CAPABILITIES),
+    ConnectorSpec("db.sql_server", "SQL Server", ConnectorCategory.DATABASES, "sql_server", ALL_CAPABILITIES),
+    ConnectorSpec("db.postgresql", "PostgreSQL", ConnectorCategory.DATABASES, "postgresql", ALL_CAPABILITIES),
+    ConnectorSpec("db.mysql", "MySQL", ConnectorCategory.DATABASES, "mysql", ALL_CAPABILITIES),
+    ConnectorSpec("db.mariadb", "MariaDB", ConnectorCategory.DATABASES, "mariadb", ALL_CAPABILITIES),
+    ConnectorSpec("db.sqlite", "SQLite", ConnectorCategory.DATABASES, "sqlite", ALL_CAPABILITIES),
+    ConnectorSpec("db.snowflake", "Snowflake", ConnectorCategory.DATABASES, "snowflake", ALL_CAPABILITIES),
+    ConnectorSpec("db.redshift", "Redshift", ConnectorCategory.DATABASES, "redshift", ALL_CAPABILITIES),
+    ConnectorSpec("db.databricks_sql", "Databricks SQL", ConnectorCategory.DATABASES, "databricks_sql", ALL_CAPABILITIES),
+    ConnectorSpec("db.bigquery", "BigQuery", ConnectorCategory.DATABASES, "bigquery", ALL_CAPABILITIES),
+    ConnectorSpec("db.hive", "Hive", ConnectorCategory.DATABASES, "hive", ALL_CAPABILITIES),
+    ConnectorSpec("db.impala", "Impala", ConnectorCategory.DATABASES, "impala", ALL_CAPABILITIES),
+    ConnectorSpec("db.clickhouse", "ClickHouse", ConnectorCategory.DATABASES, "clickhouse", ALL_CAPABILITIES),
+    ConnectorSpec("db.duckdb", "DuckDB", ConnectorCategory.DATABASES, "duckdb", ALL_CAPABILITIES),
+    ConnectorSpec("db.db2", "DB2", ConnectorCategory.DATABASES, "db2", ALL_CAPABILITIES),
+    ConnectorSpec("db.teradata", "Teradata", ConnectorCategory.DATABASES, "teradata", ALL_CAPABILITIES),
+    ConnectorSpec("db.vertica", "Vertica", ConnectorCategory.DATABASES, "vertica", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.s3", "Amazon S3", ConnectorCategory.CLOUD_STORAGE, "s3", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.azure_blob", "Azure Blob", ConnectorCategory.CLOUD_STORAGE, "azure_blob", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.azure_data_lake", "Azure Data Lake", ConnectorCategory.CLOUD_STORAGE, "azure_data_lake", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.gcs", "Google Cloud Storage", ConnectorCategory.CLOUD_STORAGE, "gcs", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.databricks_volumes", "Databricks Volumes", ConnectorCategory.CLOUD_STORAGE, "databricks_volumes", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.sharepoint", "SharePoint", ConnectorCategory.CLOUD_STORAGE, "sharepoint", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.onedrive", "OneDrive", ConnectorCategory.CLOUD_STORAGE, "onedrive", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.google_drive", "Google Drive", ConnectorCategory.CLOUD_STORAGE, "google_drive", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.ftp", "FTP", ConnectorCategory.CLOUD_STORAGE, "ftp", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.sftp", "SFTP", ConnectorCategory.CLOUD_STORAGE, "sftp", ALL_CAPABILITIES),
+    ConnectorSpec("cloud.nas", "NAS", ConnectorCategory.CLOUD_STORAGE, "nas", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.spark", "Spark", ConnectorCategory.BIG_DATA, "spark", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.hive", "Hive", ConnectorCategory.BIG_DATA, "hive", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.delta_lake", "Delta Lake", ConnectorCategory.BIG_DATA, "delta_lake", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.iceberg", "Iceberg", ConnectorCategory.BIG_DATA, "iceberg", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.hudi", "Hudi", ConnectorCategory.BIG_DATA, "hudi", ALL_CAPABILITIES),
+    ConnectorSpec("bigdata.kafka", "Kafka", ConnectorCategory.BIG_DATA, "kafka", ALL_CAPABILITIES),
+    ConnectorSpec("api.rest", "REST", ConnectorCategory.APIS, "rest", ALL_CAPABILITIES),
+    ConnectorSpec("api.soap", "SOAP", ConnectorCategory.APIS, "soap", ALL_CAPABILITIES),
+    ConnectorSpec("api.graphql", "GraphQL", ConnectorCategory.APIS, "graphql", ALL_CAPABILITIES),
+    ConnectorSpec("api.openapi", "OpenAPI", ConnectorCategory.APIS, "openapi", ALL_CAPABILITIES),
+    ConnectorSpec("api.json_api", "JSON API", ConnectorCategory.APIS, "json_api", ALL_CAPABILITIES),
+)
+
+
+def register_catalog_connectors(registry: ConnectorRegistry) -> None:
+    for spec in SUPPORTED_CONNECTOR_SPECS:
+        registry.register(
+            spec=spec,
+            builder=lambda connector_spec, config: StaticConnector(connector_spec, config),
+            default_config={"required": []},
+        )

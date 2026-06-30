@@ -1,0 +1,51 @@
+{
+  "workflow_id": "wf-sql-transform",
+  "version": "1.0.0",
+  "scheduling": {
+    "mode": "immediate",
+    "cron": null,
+    "run_at": null,
+    "interval_seconds": null,
+    "max_retries": 0,
+    "priority": 100,
+    "queue": "default",
+    "concurrency_key": null,
+    "notification_channel": "system"
+  },
+  "output_location": {
+    "provider": "local",
+    "path": "./results",
+    "format": "json"
+  },
+  "execution": {
+    "source_engine": "duckdb",
+    "target_engine": "duckdb",
+    "source_success": true,
+    "target_success": true
+  },
+  "profiling": {
+    "source": {
+      "row_count": 1,
+      "schema": {}
+    },
+    "target": {
+      "row_count": 1,
+      "schema": {}
+    },
+    "html_report_path": "./results/wf-sql-transform_profile_report.html"
+  },
+  "anomaly_visualizations": {},
+  "validation_results": {
+    "validation.custom.status": {
+      "success": true,
+      "score": 1.0,
+      "message": "status_check",
+      "details": {
+        "source_row_count": 1
+      },
+      "warnings": [],
+      "errors": []
+    }
+  },
+  "success": true
+}

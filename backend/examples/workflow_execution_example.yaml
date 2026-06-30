@@ -1,0 +1,185 @@
+workflow_id: amex-migration-validation
+version: 1.0.0
+
+source:
+  connector_key: file.csv
+  object_name: source_customers
+  inline_rows:
+    - id: 1
+      customer_name: " Alice "
+      status: active
+      amount: "10.50"
+    - id: 2
+      customer_name: " Bob "
+      status: inactive
+      amount: "20.00"
+  schema:
+    id: int
+    customer_name: string
+    status: string
+    amount: decimal
+  column_order:
+    - id
+    - customer_name
+    - status
+    - amount
+
+target:
+  connector_key: file.csv
+  object_name: target_customers
+  inline_rows:
+    - id: 1
+      customer_name: "Alice"
+      status: active
+      amount: "10.50"
+    - id: 2
+      customer_name: "Bob"
+      status: inactive
+      amount: "20.00"
+  schema:
+    id: int
+    customer_name: string
+    status: string
+    amount: decimal
+  column_order:
+    - id
+    - customer_name
+    - status
+    - amount
+
+primary_keys:
+  - id
+join_keys:
+  - id
+
+filters:
+  - column: status
+    operator: eq
+    value: active
+
+transformations:
+  - type: rename_columns
+    mapping:
+      customer_name: name
+
+sql_queries:
+  source_query: null
+  target_query: null
+  compare_query: null
+
+sql_transformations:
+  source_sql: "@active_source"
+  target_sql: "select * from dataset where status = :status_param"
+  views:
+    - name: source_view
+      query: "select * from dataset"
+      scope: source
+  temporary_tables:
+    - name: source_tmp
+      query: "select * from dataset where status = :status_param"
+      scope: source
+  ctes:
+    - name: active_rows
+      query: "select * from dataset where status = :status_param"
+      scope: source
+  stored_procedures:
+    - name: prep_source
+      call_sql: "select 1"
+      scope: source
+  parameters:
+    status_param: active
+  parameterized_queries:
+    active_source: "select * from active_rows"
+
+spark_sql: null
+
+python_transformations:
+  - trim_strings
+
+great_expectations:
+  enabled: true
+  suite_id: amex_source_suite
+  auto_generate: true
+  requested_version: "1.0.0"
+  editable_expectations:
+    - expectation_type: expect_column_to_exist
+      kwargs:
+        column: id
+    - expectation_type: expect_column_values_to_not_be_null
+      kwargs:
+        column: id
+
+anomaly_detection:
+  enabled: true
+  model: isolation_forest
+  feature_columns:
+    - id
+    - amount
+  options:
+    contamination: auto
+    random_state: 42
+
+validation_selection:
+  - validation.record_count
+  - validation.data_comparison
+  - validation.column_count
+  - validation.great_expectations
+  - validation.isolation_forest
+
+sampling:
+  enabled: false
+  method: head
+  size: 100
+
+scheduling:
+  mode: immediate
+  cron: null
+  run_at: null
+  interval_seconds: null
+  max_retries: 2
+  priority: 50
+  queue: critical
+  concurrency_key: amex-migration-validation
+  notification_channel: email
+
+output_location:
+  provider: local
+  path: ./results/amex
+  format: html
+
+result_storage:
+  formats:
+    - database
+    - csv
+    - json
+    - parquet
+    - html
+    - excel
+  allow_download: true
+  retention_days: 30
+  archive_enabled: true
+  archive_path: ./results/amex/archive
+
+reporting:
+  enabled: true
+  formats:
+    - html
+    - pdf
+    - excel
+    - csv
+    - json
+  report_types:
+    - executive_summary
+    - detailed_report
+    - comparison_report
+    - trend_report
+  email_recipients:
+    - qa-lead@tkkvalidator.local
+
+execution_profile:
+  file_size_bytes: 1048576
+  row_count: 2
+  available_memory_mb: 2048
+  cluster_available: false
+  user_preference: pandas
+  allow_fallback: true

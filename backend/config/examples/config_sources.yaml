@@ -1,0 +1,28 @@
+dotenv:
+  enabled: true
+  path: .env
+
+yaml:
+  enabled: true
+  path: config/examples/connections.yaml
+
+environment:
+  enabled: true
+  prefix: CFG_
+
+aws_secrets_manager:
+  enabled: true
+  secret_id: tkk/dev/config
+
+azure_key_vault:
+  enabled: true
+  vault_url: https://example-kv.vault.azure.net/
+
+google_secret_manager:
+  enabled: true
+  project_id: tkk-dev-project
+
+hashicorp_vault:
+  enabled: false
+  address: https://vault.example.com
+  path: kv/data/tkk/dev

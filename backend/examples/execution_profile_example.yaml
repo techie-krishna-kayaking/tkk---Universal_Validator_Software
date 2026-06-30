@@ -1,0 +1,15 @@
+execution_profile:
+  file_size_bytes: 850000000
+  row_count: 4200000
+  available_memory_mb: 4096
+  cluster_available: true
+  user_preference: pyspark
+  allow_fallback: true
+
+execution_plan:
+  operation: count
+  rows:
+    - id: 1
+      value: alpha
+    - id: 2
+      value: beta
