@@ -1,0 +1,11 @@
+product_id,product_name,category,unit_price,stock_quantity,supplier_id,sku,active,created_at
+SKU-2001,Enterprise Data Gateway 500,Software,12499.00,250,SUP-101,EDG-500,1,2021-01-15
+SKU-2002,Cloud Connector Pro,Software,3299.99,1000,SUP-102,CCP-PRO,1,2021-03-22
+SKU-2003,Validation Suite Basic,Software,799.00,5000,SUP-101,VSB-100,1,2020-08-10
+SKU-2004,Analytics Accelerator,Hardware,24999.00,75,SUP-103,AA-2024,1,2022-02-01
+SKU-2005,Data Pipeline Orchestrator,Software,6499.00,400,SUP-102,DPO-600,1,2021-11-30
+SKU-2007,ML Feature Store,Software,8999.00,300,SUP-101,MLFS-1,1,2023-01-10
+SKU-2008,Real-time Stream Processor,Hardware,18500.00,50,SUP-103,RSP-800,1,2022-09-15
+SKU-2009,API Gateway Pro,Software,4599.00,600,SUP-102,AGP-200,1,2021-07-01
+SKU-2010,Security Vault 360,Software,5799.00,460,SUP-999,SV360,1,2022-04-12
+SKU-2012,New Product Alpha,Software,2100.00,150,SUP-101,NPA-001,1,2024-01-20

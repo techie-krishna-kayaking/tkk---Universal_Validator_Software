@@ -1,0 +1,11 @@
+customer_id,first_name,last_name,email,phone,account_type,balance,status,created_date,country
+AMEX-1001,James,Mitchell,james.mitchell@amex-corp.com,+1-212-555-0101,PLATINUM,125430.00,ACTIVE,2019-03-15,US
+AMEX-1002,Sarah,Thornton,sarah.thornton@amex-corp.com,+1-212-555-0102,GOLD,48750.50,ACTIVE,2020-07-22,US
+AMEX-1003,Robert,Chen,robert.chen@amex-corp.com,+1-212-555-0103,PLATINUM,210800.00,ACTIVE,2018-11-01,US
+AMEX-1004,Emily,Rodriguez,emily.rodriguez@amex-corp.com,+1-212-555-0104,STANDARD,12300.25,INACTIVE,2021-02-14,US
+AMEX-1005,Michael,Patel,michael.patel@amex-corp.com,+1-212-555-0105,GOLD,67890.00,ACTIVE,2020-09-30,US
+AMEX-1006,Laura,Fitzgerald,laura.fitzgerald@amex-corp.com,+44-212-555-0106,PLATINUM,330120.75,ACTIVE,2017-05-18,UK
+AMEX-1007,David,Kim,david.kim@amex-corp.com,+1-212-555-0107,STANDARD,,ACTIVE,2022-01-10,US
+AMEX-1008,Nancy,Walker,nancy.walker@amex-corp.com,+1-212-555-0108,GOLD,55450.00,ACTIVE,2019-08-27,AU
+AMEX-1010,Jennifer,Lee,jennifer.lee@amex-corp.com,+1-212-555-0110,GOLD,185000.00,ACTIVE,2018-02-28,US
+AMEX-1011,Thomas,Brown,thomas.brown@amex-corp.com,+1-212-555-0111,STANDARD,4200.00,ACTIVE,2023-06-01,US

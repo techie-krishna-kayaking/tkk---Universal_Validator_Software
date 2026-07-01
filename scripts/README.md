@@ -32,3 +32,7 @@ Platform Operations
 
 ## Prompt 48 Release Scripts
 - `release/bump_version.sh`: bumps version across all manifests, commits, and creates an annotated git tag.
+
+## Prompt 49 Demo Scripts
+- `demo/seed_demo_data.py`: seeds backend with demo users, org, team, and projects.
+- `demo/run_demo_walkthrough.sh`: interactive CLI walkthrough exercising login, health, session, metrics.

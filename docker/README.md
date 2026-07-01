@@ -57,9 +57,15 @@ Observability endpoints:
 - Grafana: `http://localhost:3000`
 - Kibana: `http://localhost:5601`
 
-## Prompt 42 Backup and DR
-- Backup, restore, migration, and DR operational runbook: `docs/BACKUP_RESTORE_DR.md`
-- Operational scripts: `scripts/backup`, `scripts/restore`, `scripts/migration`, `scripts/dr`
+## Prompt 49 Demo Environment
+Start the demo stack with sample data volumes and demo-mode env:
+
+```bash
+docker compose -f docker-compose.yml -f docker/docker-compose.demo.yml up -d --build
+python scripts/demo/seed_demo_data.py
+```
+
+Then open http://localhost:8080 and log in with demo credentials from `examples/training/GETTING_STARTED.md`.
 
 Shutdown:
 

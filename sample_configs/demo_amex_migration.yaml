@@ -1,0 +1,91 @@
+workflow_id: amex-customer-migration-validation
+version: 1.0.0
+
+source:
+  connector_key: file.csv
+  object_name: source_customers
+  path: examples/demo_data/amex/customers_source.csv
+  schema:
+    customer_id: string
+    first_name: string
+    last_name: string
+    email: string
+    phone: string
+    account_type: string
+    balance: decimal
+    status: string
+    created_date: string
+    country: string
+  column_order:
+    - customer_id
+    - first_name
+    - last_name
+    - email
+    - phone
+    - account_type
+    - balance
+    - status
+    - created_date
+    - country
+
+target:
+  connector_key: file.csv
+  object_name: target_customers
+  path: examples/demo_data/amex/customers_target.csv
+  schema:
+    customer_id: string
+    first_name: string
+    last_name: string
+    email: string
+    phone: string
+    account_type: string
+    balance: decimal
+    status: string
+    created_date: string
+    country: string
+  column_order:
+    - customer_id
+    - first_name
+    - last_name
+    - email
+    - phone
+    - account_type
+    - balance
+    - status
+    - created_date
+    - country
+
+primary_keys:
+  - customer_id
+join_keys:
+  - customer_id
+
+validations:
+  - type: record_count
+  - type: column_count
+  - type: duplicate_detection
+    config:
+      columns:
+        - customer_id
+  - type: null_analysis
+    config:
+      columns:
+        - customer_id
+        - email
+        - balance
+        - status
+  - type: data_comparison
+    config:
+      columns:
+        - customer_id
+        - first_name
+        - last_name
+        - account_type
+        - balance
+        - status
+  - type: row_checksum
+  - type: symmetric_difference
+
+output:
+  format: html
+  path: results/amex_migration_report.html

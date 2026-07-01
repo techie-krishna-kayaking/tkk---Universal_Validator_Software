@@ -1,0 +1,86 @@
+workflow_id: snowflake-product-migration-validation
+version: 1.0.0
+
+source:
+  connector_key: file.csv
+  object_name: source_products
+  path: examples/demo_data/snowflake/products_source.csv
+  schema:
+    product_id: string
+    product_name: string
+    category: string
+    unit_price: decimal
+    stock_quantity: int
+    supplier_id: string
+    sku: string
+    active: int
+    created_at: string
+  column_order:
+    - product_id
+    - product_name
+    - category
+    - unit_price
+    - stock_quantity
+    - supplier_id
+    - sku
+    - active
+    - created_at
+
+target:
+  connector_key: file.csv
+  object_name: target_products
+  path: examples/demo_data/snowflake/products_target.csv
+  schema:
+    product_id: string
+    product_name: string
+    category: string
+    unit_price: decimal
+    stock_quantity: int
+    supplier_id: string
+    sku: string
+    active: int
+    created_at: string
+  column_order:
+    - product_id
+    - product_name
+    - category
+    - unit_price
+    - stock_quantity
+    - supplier_id
+    - sku
+    - active
+    - created_at
+
+primary_keys:
+  - product_id
+join_keys:
+  - product_id
+
+validations:
+  - type: record_count
+  - type: column_count
+  - type: duplicate_detection
+    config:
+      columns:
+        - product_id
+        - sku
+  - type: null_analysis
+    config:
+      columns:
+        - product_id
+        - product_name
+        - unit_price
+        - supplier_id
+  - type: data_comparison
+    config:
+      columns:
+        - product_id
+        - unit_price
+        - stock_quantity
+        - supplier_id
+        - active
+  - type: symmetric_difference
+
+output:
+  format: html
+  path: results/snowflake_migration_report.html

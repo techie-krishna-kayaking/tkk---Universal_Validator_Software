@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  backend:
+    environment:
+      APP_ENV: dev
+      DEMO_MODE: "true"
+      LOG_FORMAT: console
+      LOG_LEVEL: INFO
+    volumes:
+      - ./examples/demo_data:/app/examples/demo_data:ro
+      - ./sample_configs:/app/sample_configs:ro
+
+  frontend:
+    environment:
+      VITE_DEMO_MODE: "true"
+      VITE_API_URL: http://localhost:8000
