@@ -29,3 +29,6 @@ Platform Operations
 ## Prompt 47 Packaging Scripts
 - `package/build_desktop.sh`: builds the Tauri desktop installer for the local platform.
 - `package/build_web_artifacts.sh`: builds and packages the frontend static bundle as a versioned tarball.
+
+## Prompt 48 Release Scripts
+- `release/bump_version.sh`: bumps version across all manifests, commits, and creates an annotated git tag.

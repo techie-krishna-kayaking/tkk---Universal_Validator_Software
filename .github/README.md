@@ -18,6 +18,8 @@ Hosts repository governance metadata for workflows, issue templates, labels, and
 - `workflows/desktop-release.yml`: Multi-platform Tauri desktop installer build (Windows .msi, macOS .dmg, Linux .AppImage/.deb/.rpm).
 - `workflows/mobile-release.yml`: Capacitor Android (.apk/.aab) and iOS (.xcarchive) release builds.
 - `workflows/web-artifacts.yml`: Static frontend bundle packaging triggered on semver tags.
+- `workflows/release-drafter.yml`: Automatically drafts release notes from merged PRs.
+- `workflows/release.yml`: Full automated release pipeline triggered on semver tags (web artifacts + Docker images + GitHub Release + git-cliff notes).
 
 ## Required Repository Secrets
 - `KUBECONFIG_DATA`: Base64-encoded kubeconfig used by `deploy.yml`.
