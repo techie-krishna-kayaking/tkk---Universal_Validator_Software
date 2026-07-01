@@ -34,6 +34,8 @@ pytest-asyncio = "^0.24.0"
 pytest-cov = "^6.0.0"
 ruff = "^0.7.3"
 mypy = "^1.13.0"
+bandit = { extras = ["toml"], version = "^1.7.10" }
+pip-audit = "^2.7.3"
 
 [tool.poetry.scripts]
 backend-api = "app.main:run"
@@ -43,6 +45,12 @@ minversion = "8.0"
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-q"
+
+[tool.bandit]
+targets = ["app"]
+skips = []
+recursive = true
+exclude_dirs = ["tests"]
 
 [tool.ruff]
 line-length = 100

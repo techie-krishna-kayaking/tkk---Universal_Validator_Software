@@ -19,3 +19,8 @@ Product and Engineering Documentation Council
 
 ## Prompt 43 Runbook
 - `PERFORMANCE_TESTING.md`: load, stress, benchmark, and optimization guidance.
+
+## Prompt 44 Security Review
+- `SECURITY_REVIEW_OWASP.md`: OWASP Top 10 assessment.
+- `THREAT_MODEL.md`: STRIDE threat model.
+- `PEN_TESTING_CHECKLIST.md`: penetration testing checklist with sign-off table.
