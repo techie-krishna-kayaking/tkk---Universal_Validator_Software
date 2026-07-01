@@ -83,10 +83,9 @@
 - Security headers middleware applies: `X-Content-Type-Options`, `X-Frame-Options: DENY`, `Strict-Transport-Security`, `Content-Security-Policy: default-src 'self'`, `X-XSS-Protection`, `Referrer-Policy`.
 - OpenAPI docs and Swagger UI are disabled in production via `DOCS_URL`/`REDOC_URL` config.
 - Rate limiting applied to `/auth/login` and `/auth/refresh` endpoints.
-- CORS restricted to configured `ALLOWED_ORIGINS`; default is `*` which **must be changed in production**.
-
+- CORS restricted to configured `ALLOWED_ORIGINS`; default changed to local dev origins only (never `*`).
 **Gaps / Hardening actions:**
-- `ALLOWED_ORIGINS=*` is insecure for production — set to explicit frontend origin only.
+- Set `ALLOWED_ORIGINS` to the exact production frontend origin before deploying.
 - `CSP: default-src 'self'` may need relaxation for CDN assets; audit before enabling for frontend.
 - Validate that Kubernetes ingress does not expose backend health or metrics endpoints publicly.
 - Grafana default credentials `admin/admin` must be rotated before staging deployment.

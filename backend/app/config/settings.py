@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     api_v1_prefix: str = Field(default="/api/v1", alias="API_V1_PREFIX")
     request_id_header: str = Field(default="X-Request-ID", alias="REQUEST_ID_HEADER")
 
-    allowed_origins_raw: str = Field(default="*", alias="ALLOWED_ORIGINS")
+    allowed_origins_raw: str = Field(default="http://localhost:5173,http://localhost:8080", alias="ALLOWED_ORIGINS")
     enable_gzip: bool = Field(default=True, alias="ENABLE_GZIP")
     enable_security_headers: bool = Field(default=True, alias="ENABLE_SECURITY_HEADERS")
     enable_rate_limit_hooks: bool = Field(default=True, alias="ENABLE_RATE_LIMIT_HOOKS")
