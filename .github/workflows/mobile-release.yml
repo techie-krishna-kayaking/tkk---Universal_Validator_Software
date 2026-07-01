@@ -1,0 +1,112 @@
+name: Mobile Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Target platform"
+        required: true
+        default: android
+        type: choice
+        options:
+          - android
+          - ios
+          - both
+      version:
+        description: "Version tag (e.g. v1.0.0)"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    name: Android Build
+    if: ${{ inputs.platform == 'android' || inputs.platform == 'both' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build web assets
+        run: cd frontend && npm ci && npm run build
+
+      - name: Install Capacitor and sync Android
+        run: |
+          cd mobile
+          npm ci
+          npx cap sync android
+
+      - name: Build Android APK and AAB
+        run: |
+          cd mobile/android
+          chmod +x ./gradlew
+          ./gradlew assembleRelease bundleRelease
+
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-${{ inputs.version }}
+          path: |
+            mobile/android/app/build/outputs/apk/release/
+            mobile/android/app/build/outputs/bundle/release/
+
+  ios:
+    name: iOS Build
+    if: ${{ inputs.platform == 'ios' || inputs.platform == 'both' }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build web assets
+        run: cd frontend && npm ci && npm run build
+
+      - name: Install Capacitor and sync iOS
+        run: |
+          cd mobile
+          npm ci
+          npx cap sync ios
+
+      - name: Install CocoaPods dependencies
+        run: |
+          cd mobile/ios/App
+          pod install
+
+      - name: Build iOS (unsigned archive for CI)
+        run: |
+          cd mobile/ios/App
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath "$PWD/App.xcarchive" \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload iOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-${{ inputs.version }}
+          path: mobile/ios/App/App.xcarchive/

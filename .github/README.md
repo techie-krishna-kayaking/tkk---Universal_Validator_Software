@@ -15,6 +15,9 @@ Hosts repository governance metadata for workflows, issue templates, labels, and
 - `workflows/backup-dr.yml`: Manual Kubernetes backup, restore, and migration operations for DR readiness.
 - `workflows/performance.yml`: Manual load, stress, and benchmark performance test execution with k6.
 - `workflows/security-scan.yml`: bandit static analysis, pip-audit, and npm audit on every push and weekly schedule.
+- `workflows/desktop-release.yml`: Multi-platform Tauri desktop installer build (Windows .msi, macOS .dmg, Linux .AppImage/.deb/.rpm).
+- `workflows/mobile-release.yml`: Capacitor Android (.apk/.aab) and iOS (.xcarchive) release builds.
+- `workflows/web-artifacts.yml`: Static frontend bundle packaging triggered on semver tags.
 
 ## Required Repository Secrets
 - `KUBECONFIG_DATA`: Base64-encoded kubeconfig used by `deploy.yml`.

@@ -25,3 +25,7 @@ Platform Operations
 
 ## Prompt 43 Performance Script
 - `performance/run_k6_profile.sh`: runs load, stress, benchmark, or all k6 performance profiles.
+
+## Prompt 47 Packaging Scripts
+- `package/build_desktop.sh`: builds the Tauri desktop installer for the local platform.
+- `package/build_web_artifacts.sh`: builds and packages the frontend static bundle as a versioned tarball.
