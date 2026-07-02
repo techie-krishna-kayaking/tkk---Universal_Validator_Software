@@ -12,6 +12,21 @@ Open your browser and navigate to the URL provided by your administrator (typica
 
 In development and staging environments, a **Demo Mode** banner at the login screen offers prefilled credentials for testing. This is disabled in production.
 
+Development seed context:
+- Organization: `TKK Technologies Pvt Ltd` (`TKK-ORG-001`)
+- Team: `Data Engineering Team` (`TEAM-DE-001`)
+- Projects: `American Express Data Migration` (`AMEX-DM-001`) and `Snowflake Migration Validation` (`SNOW-VAL-001`)
+
+Development test users:
+- `admin / Admin@123` (Platform Admin)
+- `orgadmin / Admin@123` (Organization Admin)
+- `architect / Architect@123` (Architect)
+- `qalead / QALead@123` (QA Lead)
+- `tester / Tester@123` (QA Engineer)
+- `dataengineer / Data@123` (Data Engineer)
+- `viewer / Viewer@123` (Viewer)
+- `guest / Guest@123` (Guest)
+
 ---
 
 ## Default Roles
@@ -21,6 +36,7 @@ In development and staging environments, a **Demo Mode** banner at the login scr
 | Platform Admin | Full system access including org management |
 | Organization Admin | Manages users, teams, and org-wide settings |
 | Architect | Creates connections, designs workflows, configures AI |
+| Data Engineer | Runs validation workflows and data quality checks |
 | QA Lead | Creates and runs validations, views all reports |
 | QA Engineer | Runs validations, views reports |
 | Viewer | Read-only access to reports and dashboards |

@@ -73,10 +73,32 @@ The invited user receives an email with an acceptance link. Until accepted, the 
 | Platform Admin | `platform_admin` |
 | Organisation Admin | `organization_admin` |
 | Architect | `architect` |
+| Data Engineer | `data_engineer` |
 | QA Lead | `qa_lead` |
 | QA Engineer | `qa_engineer` |
 | Viewer | `viewer` |
 | Guest | `guest` |
+
+### Recommended access matrix
+
+| Feature | Admin | Org Admin | Architect | QA Lead | QA Engineer | Viewer |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Manage Organizations | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Manage Users | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Create Connections | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Edit Connections | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Test Connections | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Upload YAML | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Create Validation Jobs | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Run Validation | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| View Reports | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Download Reports | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Delete Reports | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| AI Chatbot | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Configure LLM | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Manage Secrets | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| System Settings | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Audit Logs | ✅ | ✅ | ✅ | ❌ | ❌ | Read only |
 
 ### Custom roles
 
@@ -93,14 +115,24 @@ POST /api/v1/admin/roles
 
 | Permission | Description |
 |---|---|
+| `can_manage_organizations` | Create or modify organizations |
+| `can_manage_users` | Invite, deactivate, and update users |
 | `can_create_connections` | Create new data connections |
+| `can_edit_connections` | Update existing data connections |
+| `can_test_connections` | Run connection test operations |
+| `can_upload_yaml` | Upload workflow YAML definitions |
+| `can_create_validation_jobs` | Create validation jobs |
 | `can_delete_connections` | Remove data connections |
 | `can_run_validation` | Execute validation jobs |
 | `can_view_reports` | View validation reports |
 | `can_download_reports` | Download report files |
 | `can_delete_reports` | Delete historical reports |
+| `can_use_ai_chatbot` | Use AI chatbot features |
+| `can_configure_llm` | Configure LLM providers |
 | `can_configure_ai` | Configure LLM providers |
 | `can_manage_secrets` | Create and read encrypted secrets |
+| `can_system_settings` | Manage platform-level system settings |
+| `can_view_audit_logs` | Read audit event streams |
 | `can_configure_schedulers` | Create and modify job schedules |
 
 ---

@@ -8,44 +8,92 @@ from app.models.base import Base
 
 
 DEFAULT_FEATURE_PERMISSIONS = [
+    "can_manage_organizations",
+    "can_manage_users",
     "can_create_connections",
+    "can_edit_connections",
+    "can_test_connections",
+    "can_upload_yaml",
+    "can_create_validation_jobs",
     "can_delete_connections",
     "can_run_validation",
     "can_view_reports",
     "can_download_reports",
+    "can_delete_reports",
+    "can_use_ai_chatbot",
+    "can_configure_llm",
     "can_configure_ai",
     "can_manage_secrets",
+    "can_system_settings",
+    "can_view_audit_logs",
     "can_configure_schedulers",
 ]
 
 
 DEFAULT_ROLES = {
     "platform_admin": DEFAULT_FEATURE_PERMISSIONS,
-    "organization_admin": DEFAULT_FEATURE_PERMISSIONS,
+    "organization_admin": [
+        permission for permission in DEFAULT_FEATURE_PERMISSIONS if permission != "can_system_settings"
+    ],
     "architect": [
+        "can_edit_connections",
+        "can_test_connections",
+        "can_upload_yaml",
+        "can_create_validation_jobs",
         "can_create_connections",
         "can_run_validation",
         "can_view_reports",
         "can_download_reports",
+        "can_delete_reports",
+        "can_use_ai_chatbot",
+        "can_configure_llm",
         "can_configure_ai",
+        "can_manage_secrets",
+        "can_view_audit_logs",
         "can_configure_schedulers",
     ],
     "developer": [
         "can_create_connections",
-        "can_run_validation",
-        "can_view_reports",
-    ],
-    "qa_lead": [
+        "can_edit_connections",
+        "can_test_connections",
+        "can_upload_yaml",
+        "can_create_validation_jobs",
         "can_run_validation",
         "can_view_reports",
         "can_download_reports",
     ],
-    "qa_engineer": [
+    "qa_lead": [
+        "can_create_connections",
+        "can_edit_connections",
+        "can_test_connections",
+        "can_upload_yaml",
+        "can_create_validation_jobs",
         "can_run_validation",
         "can_view_reports",
+        "can_download_reports",
+        "can_use_ai_chatbot",
+    ],
+    "qa_engineer": [
+        "can_test_connections",
+        "can_upload_yaml",
+        "can_create_validation_jobs",
+        "can_run_validation",
+        "can_view_reports",
+        "can_download_reports",
+        "can_use_ai_chatbot",
+    ],
+    "data_engineer": [
+        "can_test_connections",
+        "can_upload_yaml",
+        "can_create_validation_jobs",
+        "can_run_validation",
+        "can_view_reports",
+        "can_download_reports",
+        "can_use_ai_chatbot",
     ],
     "viewer": [
         "can_view_reports",
+        "can_download_reports",
     ],
     "guest": [],
 }

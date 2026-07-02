@@ -7,6 +7,7 @@ import { OverviewPage } from "./pages/OverviewPage";
 import { PlaceholderPage } from "./pages/PlaceholderPage";
 import { ConnectionManagementPage } from "./pages/ConnectionManagementPage";
 import { AdminConsolePage } from "./pages/AdminConsolePage";
+import { LoginPage } from "./pages/LoginPage";
 import { AccessibilityPage } from "./pages/AccessibilityPage";
 import { AIChatbotPage } from "./pages/AIChatbotPage";
 import { AIReportExplainerPage } from "./pages/AIReportExplainerPage";
@@ -26,17 +27,25 @@ function ProtectedRoute({
   allowedRoles: string[];
   children: React.ReactNode;
 }): React.JSX.Element {
-  const {
-    user: { role },
-  } = useAuth();
+  const { user } = useAuth();
 
-  if (!allowedRoles.includes(role)) {
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
+
+  if (!allowedRoles.includes(user.role)) {
     return <Navigate to="/" replace />;
   }
   return <>{children}</>;
 }
 
 export function App(): React.JSX.Element {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <LoginPage />;
+  }
+
   return (
     <DashboardLayout>
       <Routes>

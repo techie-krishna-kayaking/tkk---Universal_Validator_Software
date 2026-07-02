@@ -6,6 +6,7 @@ from fastapi import FastAPI
 
 from app.config.settings import Settings
 from app.core.db import close_database
+from app.core.dev_seed import seed_development_data
 from app.core.redis import close_redis
 from app.dependencies.container import AppContainer, create_container
 
@@ -25,6 +26,11 @@ async def validate_required_dependencies(container: AppContainer, settings: Sett
 async def app_lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     logger.info("application_starting")
     container = await create_container()
+    seed_development_data(
+        app_env=container.settings.app_env,
+        auth_repository=container.auth_repository,
+        user_mgmt_repository=container.user_mgmt_repository,
+    )
     await validate_required_dependencies(container, container.settings)
     app.state.container = container
     app.state.started = True

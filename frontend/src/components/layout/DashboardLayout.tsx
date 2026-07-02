@@ -5,6 +5,7 @@ import {
   AppBar,
   Avatar,
   Box,
+  Button,
   Drawer,
   FormControl,
   IconButton,
@@ -32,6 +33,8 @@ const roleLabels: Record<UserRole, string> = {
   platform_admin: "Platform Admin",
   organization_admin: "Organization Admin",
   architect: "Architect",
+  data_engineer: "Data Engineer",
+  developer: "Developer",
   qa_lead: "QA Lead",
   qa_engineer: "QA Engineer",
   viewer: "Viewer",
@@ -43,7 +46,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }): Re
   const materialTheme = useTheme();
   const isDesktop = useMediaQuery(materialTheme.breakpoints.up("md"));
   const { mode, toggleMode } = useColorMode();
-  const { user, setRole } = useAuth();
+  const { user, setRole, logout } = useAuth();
   const { locale, setLocale, t } = useLocalization();
   const navigate = useNavigate();
   const location = useLocation();
@@ -91,6 +94,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }): Re
     ),
     [t]
   );
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <Box sx={{ display: "flex", minHeight: "100vh" }}>
@@ -150,6 +157,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }): Re
             {mode === "dark" ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
           </IconButton>
           <Stack direction="row" spacing={1} alignItems="center">
+            <Button size="small" color="inherit" onClick={logout}>
+              Sign Out
+            </Button>
             <Avatar sx={{ bgcolor: "secondary.main", width: 34, height: 34 }}>{user.name[0]}</Avatar>
             <Typography variant="body2" sx={{ display: { xs: "none", sm: "block" } }}>
               {roleLabels[user.role]}
